@@ -13,6 +13,7 @@
         box-shadow: $text-shadow;
         text-shadow: $text-shadow;
         flex-basis: 215px;
+        transition: all 300ms;
       
         i{
             font-size: 20px;
@@ -23,6 +24,13 @@
             color: white !important;
             font-size: 20px;
             font-weight: 100 !important;
+            transition: all 300ms;
         }
+       
+    }
+
+    .box:hover{
+        cursor:  pointer;
+        background-color:  $principal-gray !important;
     }
 }

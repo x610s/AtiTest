@@ -1,17 +1,19 @@
 
 require('./bootstrap');
-
 window.Vue = require('vue').default;
 
+import Vuex from 'vuex'
+import storeData from "./store/store"
+Vue.use(Vuex)
+Vue.component('plan-component', require('./components/PlanComponent.vue').default);
+Vue.component('cliente-component', require('./components/ClienteComponent.vue').default);
+Vue.component('panel-component', require('./components/PanelComponent.vue').default);
+Vue.component('navbar-component', require('./components/Navbar.vue').default);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 const app = new Vue({
     el: '#app',
+    store: new Vuex.Store(
+        storeData
+     )
 });

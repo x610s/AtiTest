@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::resource('usuario', UserController::class);
-Route::resource('admin', AdminDashboardController::class);;
+Route::resource('admin', AdminDashboardController::class);
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
