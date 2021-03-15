@@ -1,15 +1,25 @@
 .pages-admin-opciones{
-    padding: 2rem;
+    background-color: #eeeeee !important;
+    $text-shadow : 0px 0px 2px #333;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-
+    justify-content:  space-around;
     .box{
-        background-color: dodgerblue;
-        margin-top: 1rem;
-        box-shadow: 0px 0px 2px #333;
-        flex-basis: 250px;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+        background-color: $principal-blue;
+        box-shadow: $text-shadow;
+        text-shadow: $text-shadow;
+        flex-basis: 215px;
+      
+        i{
+            font-size: 20px;
+            color: white;
+        }
         h4{
+            width: 150px;
             color: white !important;
             font-size: 20px;
             font-weight: 100 !important;
