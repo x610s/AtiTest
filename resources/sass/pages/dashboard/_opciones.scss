@@ -1,0 +1,18 @@
+.pages-admin-opciones{
+    padding: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .box{
+        background-color: dodgerblue;
+        margin-top: 1rem;
+        box-shadow: 0px 0px 2px #333;
+        flex-basis: 250px;
+        h4{
+            color: white !important;
+            font-size: 20px;
+            font-weight: 100 !important;
+        }
+    }
+}
