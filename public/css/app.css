@@ -4638,21 +4638,20 @@ readers do not read off random characters that represent icons */
 }
 
 .pages-admin-opciones {
-  background-color: #eeeeee !important;
-  padding-bottom: 1rem;
-  padding-top: 0.5rem;
+  background-color: #222831 !important;
+  min-height: 600px;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  flex-flow: column wrap;
+  align-items: flex-start !important;
 }
 
 .pages-admin-opciones .box {
   border-radius: 5px;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   background-color: dodgerblue;
   box-shadow: 0px 0px 2px #333;
   text-shadow: 0px 0px 2px #333;
-  flex-basis: 215px;
+  width: 90%;
   transition: all 300ms;
 }
 
@@ -4662,9 +4661,8 @@ readers do not read off random characters that represent icons */
 }
 
 .pages-admin-opciones .box h4 {
-  width: 150px;
   color: white !important;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 100 !important;
   transition: all 300ms;
 }
@@ -4674,8 +4672,24 @@ readers do not read off random characters that represent icons */
   background-color: #393e46 !important;
 }
 
-.pages-admin-navbar {
-  background-color: #222831;
+.pages-admin-cliente {
+  background-color: #eeeeee !important;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.pages-admin-cliente .cliente-formulario {
+  padding: 1rem !important;
+  margin-top: 2.5rem !important;
+  background-color: #fff;
+  height: 570px;
+}
+
+.pages-admin-cliente .cliente-permisos {
+  height: 570px;
+  margin-top: 2.5rem !important;
+  background-color: #fff;
 }
 
 /*!

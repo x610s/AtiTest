@@ -39,7 +39,11 @@ class Impl_UserRepository implements I_UserRepository
     {
     }
 
-
+    public function storeUser($request)
+    {
+        $usuario =  User::create($request->all());
+        return $usuario;
+    }
 
     public function isDefault($user)
     {

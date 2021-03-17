@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\updateUserRequest;
-use App\Models\User;
+use App\Http\Requests\userStoreRequest;
 use App\Repository\I_UserRepository;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -29,9 +27,9 @@ class UserController extends Controller
     }
 
  
-    public function store(Request $request)
-    {
-        //
+    public function store(userStoreRequest $request)
+    { 
+        return $this->usuarioDAO->storeUser($request);
     }
 
   

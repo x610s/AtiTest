@@ -1,0 +1,18 @@
+.pages-admin-cliente{
+    background-color: #eeeeee  !important;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    .cliente-formulario{
+        padding: 1rem !important;
+        margin-top: 2.5rem !important;
+        background-color: #fff;
+        height: 570px;
+
+    }
+    .cliente-permisos{
+        height: 570px;
+        margin-top: 2.5rem !important;
+        background-color: #fff;
+    }
+}

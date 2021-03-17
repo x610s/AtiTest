@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="col-10">
         <h2>Planes</h2>
     </div>
 </template>
