@@ -2092,19 +2092,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       validationErrors: null,
       roles: ["Administrador", "Cliente"],
-      selectedRoles: [],
       nuevoUsuario: {
+        roles: [],
         name: "",
         email: "",
         phone: "",
         company: "",
         address: "",
-        password: ""
+        password: "",
+        password_confirmation: ""
       }
     };
   },
@@ -2112,16 +2119,12 @@ __webpack_require__.r(__webpack_exports__);
     agregar: function agregar() {
       var _this = this;
 
-      /* 
-      if(this.nuevoUsuario.passwordConfirm !== this.nuevoUsuario.password){
-       console.log('error no coinciden');
-       return;
-      } */
       var registrar = this.nuevoUsuario;
       axios.post("/usuario", registrar).then(function (res) {
         console.log(res.data);
         _this.validationErrors = null;
         _this.nuevoUsuario = {
+          roles: [],
           name: "",
           email: "",
           phone: "",
@@ -2130,8 +2133,10 @@ __webpack_require__.r(__webpack_exports__);
           password: ""
         };
       })["catch"](function (error) {
-        if (error.response.status == 422) {
+        if (error.response.status == 422 || error.response.status == 500) {
           _this.dispararAlarma(error);
+        } else {
+          console.warn(error);
         }
       });
     },
@@ -2142,6 +2147,9 @@ __webpack_require__.r(__webpack_exports__);
       setTimeout(function () {
         _this2.validationErrors = null;
       }, 4000);
+    },
+    isChecked: function isChecked(value) {
+      return this.nuevoUsuario.roles.includes(value);
     }
   }
 });
@@ -38170,7 +38178,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "form-group shadow row rounded col-10",
+      staticClass: "form-group shadow row rounded col-12",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -38186,7 +38194,7 @@ var render = function() {
               { staticClass: "alert alert-danger" },
               _vm._l(_vm.validationErrors, function(error) {
                 return _c("span", { key: error.id }, [
-                  _vm._v("\n          " + _vm._s(error) + "\n        ")
+                  _vm._v("\n        " + _vm._s(error) + "\n      ")
                 ])
               }),
               0
@@ -38323,7 +38331,7 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c("label", { attrs: { for: "address" } }, [_vm._v("Contraseña")]),
+        _c("label", { attrs: { for: "password" } }, [_vm._v("Contraseña")]),
         _vm._v(" "),
         _c("input", {
           directives: [
@@ -38351,10 +38359,114 @@ var render = function() {
           }
         }),
         _vm._v(" "),
+        _c("label", { attrs: { for: "password_confirmation" } }, [
+          _vm._v("Confirmar contraseña")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.nuevoUsuario.password_confirmation,
+              expression: "nuevoUsuario.password_confirmation"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            type: "password",
+            name: "password_confirmation",
+            placeholder: "Contraseña"
+          },
+          domProps: { value: _vm.nuevoUsuario.password_confirmation },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.nuevoUsuario,
+                "password_confirmation",
+                $event.target.value
+              )
+            }
+          }
+        }),
+        _vm._v(" "),
         _vm._m(0)
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col text-center" })
+      _c(
+        "div",
+        { staticClass: "col-4 text-center py-2" },
+        _vm._l(_vm.roles, function(rol, index) {
+          return _c(
+            "div",
+            {
+              key: rol.id,
+              staticClass: "btn-group-toggle",
+              attrs: { "data-toggle": "buttons" }
+            },
+            [
+              _c(
+                "label",
+                { staticClass: "btn btn-block my-2 py-4 btn-outline-primary" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.nuevoUsuario.roles,
+                        expression: "nuevoUsuario.roles"
+                      }
+                    ],
+                    attrs: { type: "checkbox", id: rol.id },
+                    domProps: {
+                      value: index + 1,
+                      checked: Array.isArray(_vm.nuevoUsuario.roles)
+                        ? _vm._i(_vm.nuevoUsuario.roles, index + 1) > -1
+                        : _vm.nuevoUsuario.roles
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.nuevoUsuario.roles,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = index + 1,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(
+                                _vm.nuevoUsuario,
+                                "roles",
+                                $$a.concat([$$v])
+                              )
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.nuevoUsuario,
+                                "roles",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.nuevoUsuario, "roles", $$c)
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("i", { staticClass: "fas fa-user-shield" }),
+                  _vm._v(" " + _vm._s(rol) + "\n      ")
+                ]
+              )
+            ]
+          )
+        }),
+        0
+      )
     ]
   )
 }

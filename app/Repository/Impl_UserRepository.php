@@ -11,7 +11,9 @@ class Impl_UserRepository implements I_UserRepository
 
     public function getUser($id)
     {
+
         return User::with(['roles','planes'])->findOrFail($id);
+        
     }
 
 
@@ -26,8 +28,6 @@ class Impl_UserRepository implements I_UserRepository
     {
 
         $user = User::findOrFail($id);
-
-
         if ($request->hasFile('avatar')) {
             $this->updateImg($user,$request);
         }
@@ -40,8 +40,9 @@ class Impl_UserRepository implements I_UserRepository
     }
 
     public function storeUser($request)
-    {
-        $usuario =  User::create($request->all());
+    {  
+        $usuario =  User::create($request->except('roles'));
+        $this->assignedRoles($request,$usuario);
         return $usuario;
     }
 
@@ -58,4 +59,11 @@ class Impl_UserRepository implements I_UserRepository
         }
         $user->avatar = $request->file('avatar')->store('public');
     }
+
+    public function assignedRoles($request, $usuario){
+        $roles = $request->only('roles');
+        $usuario->roles()->attach($roles['roles']);
+    }
+
+
 }

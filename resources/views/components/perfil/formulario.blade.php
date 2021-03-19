@@ -6,31 +6,31 @@
             </strong>
            </div>
     @endif
-    <form action="{{route('usuario.update',$user)}}" method="POST" 
+    <form action="{{route('usuario.update',$usuario)}}" method="POST" 
     class="form-group" 
      enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <label for="name">Nombre</label>
-        <input type="text" class="form-control" name="name" placeholder="Nombre" value="{{$user->name}}">
+        <input type="text" class="form-control" name="name" placeholder="Nombre" value="{{$usuario->name}}">
         {!! $errors->first('name') !!}
 
         <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" placeholder="Email" value="{{$user->email}}">
+        <input type="text" class="form-control" name="email" placeholder="Email" value="{{$usuario->email}}">
         {!! $errors->first('email') !!}
 
 
         <label for="phone">Telefono</label>
-        <input type="text" class="form-control"  name="phone" placeholder="Telefono" value="{{$user->phone}}">
+        <input type="text" class="form-control"  name="phone" placeholder="Telefono" value="{{$usuario->phone}}">
         {!! $errors->first('phone') !!}
 
                 <label for="company">Compañia</label>
-        <input type="text" class="form-control"  name="company" placeholder="Compañia"  value="{{$user->company}}">
+        <input type="text" class="form-control"  name="company" placeholder="Compañia"  value="{{$usuario->company}}">
         {!! $errors->first('company') !!}
 
 
         <label for="address">Dirección</label>
-        <input type="text" class="form-control"  name="address"  value="{{$user->address}}">
+        <input type="text" class="form-control"  name="address"  value="{{$usuario->address}}">
         {!! $errors->first('address') !!}
 
 
