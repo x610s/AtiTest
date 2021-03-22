@@ -14,9 +14,14 @@
                         <p class="card-text">e of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
                        
                         @if(!auth()->user()->present()->hasPlan($item->id))
-                        <button class="btn btn-success btn-block"  @click="selectModule({{$item['id']}})">
+                        <button class="btn btn-outline-primary btn-block"  @click="selectModule({{$item['id']}})" id="boton{{$item->id}}">
                             <i class="fa fa-cart-plus" aria-hidden="true" ></i> Comprar
                         </button> 
+
+                        @else
+                        <div class="text-center text-primary">
+                             Adquirido
+                        </div>
                         @endif
                     </div>
                 </div>

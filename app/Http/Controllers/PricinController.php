@@ -43,7 +43,6 @@ class PricinController extends Controller
     public function update($id)
     {
         $user = User::findOrFail(auth()->user()->id);
-        
         return  $user->planes()->attach($id);
     }
 

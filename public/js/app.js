@@ -2255,12 +2255,14 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_2__.default({
   el: '#pricing',
   methods: {
     selectModule: function selectModule(number) {
+      var _this = this;
+
       axios__WEBPACK_IMPORTED_MODULE_4___default().put('pricing/' + number).then(function (res) {
-        console.log(res.data);
-        window.location.href = 'pricing';
+        _this.successAlert();
+
+        $("#boton".concat(number)).remove();
       })["catch"](function (e) {
-        console.log(e);
-        /* this.dangerAlert(e.data); */
+        _this.dangerAlert(e.data);
       });
     },
     successAlert: function successAlert() {

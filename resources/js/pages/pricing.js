@@ -13,12 +13,11 @@ const app = new Vue({
         selectModule(number){
             axios.put('pricing/'+number)
             .then(res=>{
-                console.log(res.data);
-                window.location.href = 'pricing';
+               this.successAlert();
+                $(`#boton${number}`).remove();
             })
             .catch((e)=>{
-                console.log(e);
-                /* this.dangerAlert(e.data); */
+                this.dangerAlert(e.data); 
             })
          },
          successAlert(){
