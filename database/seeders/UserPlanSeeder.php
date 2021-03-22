@@ -16,10 +16,11 @@ class UserPlanSeeder extends Seeder
     public function run()
     {
         DB::table('plans_user')->truncate();
+     /*   
         for ($i=1; $i <=5 ; $i++) { 
             $user = User::find($i);
             $user->planes()->attach(1);
-        }
+        } */
 
     }
 }

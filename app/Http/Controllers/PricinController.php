@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Plan;
+use App\Models\User;
+
 
 class PricinController extends Controller
 {
@@ -13,7 +15,8 @@ class PricinController extends Controller
      */
     public function index()
     {
-        return view('pages.pricing');
+        $plan = Plan::all();
+        return view('pages.pricing',compact('plan'));
     }
 
    
@@ -22,9 +25,8 @@ class PricinController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store($request)
     {
-        //
     }
 
     public function show($id)
@@ -38,9 +40,11 @@ class PricinController extends Controller
     }
 
   
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $user = User::findOrFail(auth()->user()->id);
+        
+        return  $user->planes()->attach($id);
     }
 
   

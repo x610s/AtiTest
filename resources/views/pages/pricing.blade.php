@@ -2,23 +2,28 @@
 
 
 @section('contenido')
-    <div class="container my-5">
-        <div class="row">
+    <div class="container my-5 page-pricing" id="pricing">
+        <div class="row justify-content-around mx-auto">
+           
+           @foreach ($plan as $item)
             <div class="col-3">
-                <div class="card">
-                    <img class="card-img-top" src="holder.js/100x180/" alt="">
+                <div class="card page-pricing-card">
+                    <i class="fas fa-star-half-alt text-center mt-5"></i>
                     <div class="card-body">
-                        <h4 class="card-title">Title</h4>
-                        <p class="card-text">Text</p>
-
-                        <div>
-                        
-                            <a class="btn btn-outline-primary btn-block">
-                                <i class="fa fa-cart-plus" aria-hidden="true"></i> Comprar</a>
-                        </div>
+                        <h4 class="card-title"> {{$item->name}} [{{$item->id}}] </h4>
+                        <p class="card-text">e of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                       
+                        @if(!auth()->user()->present()->hasPlan($item->id))
+                        <button class="btn btn-success btn-block"  @click="selectModule({{$item['id']}})">
+                            <i class="fa fa-cart-plus" aria-hidden="true" ></i> Comprar
+                        </button> 
+                        @endif
                     </div>
                 </div>
             </div>
+
+            @endforeach 
+
         </div>
     </div>
 @endsection

@@ -4692,6 +4692,16 @@ readers do not read off random characters that represent icons */
   background-color: #fff;
 }
 
+.page-pricing-card {
+  min-height: 400px;
+}
+
+.page-pricing-card .fa-star-half-alt {
+  font-size: 4rem;
+  text-shadow: 0px 2px 2px #333;
+  color: dodgerblue;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

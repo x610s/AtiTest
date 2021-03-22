@@ -11,6 +11,8 @@ Vue.component('cliente-component', require('./components/ClienteComponent.vue').
 Vue.component('panel-component', require('./components/PanelComponent.vue').default);
 Vue.component('navbar-component', require('./components/Navbar.vue').default);
 Vue.component('formulario', require('./components/formulario.vue').default);
+Vue.component('comprar-component', require('./components/ComprarComponent.vue').default);
+
 
 
 const app = new Vue({
@@ -19,3 +21,9 @@ const app = new Vue({
         storeData
      )
 });
+
+
+
+if (window.location.pathname.endsWith('/pricing')) {
+    require('./pages/pricing');
+}
