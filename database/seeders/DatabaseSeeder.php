@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserRoleSeeder::class,
             PlanSeeder::class,
-            UserPlanSeeder::class
+            UserPlanSeeder::class,
+            CarpetaSeeder::class
         ]);
     }
 }

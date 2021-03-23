@@ -20,7 +20,7 @@
         </li>
         @else
         <li class="nav-item">
-          <a class="nav-link" href="#">Panel de control</a>
+          <a class="nav-link"  href="{{route('panel.index')}}">Panel de control</a>
         </li>
         @endif
         <div class="btn-group">

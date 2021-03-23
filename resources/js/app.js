@@ -27,3 +27,6 @@ const app = new Vue({
 if (window.location.pathname.endsWith('/pricing')) {
     require('./pages/pricing');
 }
+if (window.location.pathname.endsWith('/panel')) {
+    require('./pages/cliente');
+}

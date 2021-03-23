@@ -2207,6 +2207,10 @@ if (window.location.pathname.endsWith('/pricing')) {
   __webpack_require__(/*! ./pages/pricing */ "./resources/js/pages/pricing.js");
 }
 
+if (window.location.pathname.endsWith('/panel')) {
+  __webpack_require__(/*! ./pages/cliente */ "./resources/js/pages/cliente.js");
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -2229,6 +2233,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/pages/cliente.js":
+/*!***************************************!*\
+  !*** ./resources/js/pages/cliente.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _store_clientStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/clientStore */ "./resources/js/store/clientStore.js");
+
+
+
+var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
+  el: '#client',
+  store: new vuex__WEBPACK_IMPORTED_MODULE_2__.default.Store(_store_clientStore__WEBPACK_IMPORTED_MODULE_0__.default),
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(['panel'])
+});
+var app2 = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
+  el: '#opciones',
+  store: new vuex__WEBPACK_IMPORTED_MODULE_2__.default.Store(_store_clientStore__WEBPACK_IMPORTED_MODULE_0__.default),
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapState)(['panel'])
+});
+
+/***/ }),
+
 /***/ "./resources/js/pages/pricing.js":
 /*!***************************************!*\
   !*** ./resources/js/pages/pricing.js ***!
@@ -2245,7 +2276,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 
- // If you don't need the styles, do not connect
 
 
 vue__WEBPACK_IMPORTED_MODULE_2__.default.use(vue_sweetalert2__WEBPACK_IMPORTED_MODULE_0__.default);
@@ -2283,6 +2313,32 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_2__.default({
         timer: 1500
       });
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/clientStore.js":
+/*!*******************************************!*\
+  !*** ./resources/js/store/clientStore.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state: {
+    panel: 1
+  },
+  getters: {},
+  actions: {},
+  mutations: {
+    /*   changePanel (state,n) {
+          state.panel=n;
+        } */
   }
 });
 

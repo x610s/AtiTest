@@ -27,6 +27,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Plan::class,'plans_user');
     }
 
+    public function carpetas()
+    {
+        return $this->hasOne(Carpeta::class, 'user_id');
+    }
 
 
     /* Chequeo de roles */
