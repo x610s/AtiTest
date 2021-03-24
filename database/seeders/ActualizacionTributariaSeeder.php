@@ -19,10 +19,9 @@ class ActualizacionTributariaSeeder extends Seeder
     public function run()
     {
         ActualizacionTributaria::truncate();
-        for ($i=1; $i <=5; $i++) { 
-            $user = User::find($i);
+        for ($i=1; $i <=4; $i++) { 
             ActualizacionTributaria::create([
-                'name' => 'Actualizacion Tributaria '.$user->name.' '. Carbon::now(),
+                'name' => 'Actualizacion Tributaria '. Carbon::now(),
                 'descripcion' => Str::random(200),
             ]);
         }

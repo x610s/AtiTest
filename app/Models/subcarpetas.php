@@ -8,15 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class subcarpetas extends Model
 {
     use HasFactory;
+
+
     public function carpeta(){
         return $this->belongsTo(Carpeta::class);
     }
 
-    public function EstadoFinanciero(){
-        return $this->hasOne(EstadoFinanciero::class,'id_ef');
+    public function estadoFinanciero(){
+        return $this->hasOne(EstadoFinanciero::class, 'id', 'id_ef');
     }
 
-    public function ActualizacionTributaria(){
-        return $this->hasOne(ActualizacionTributaria::class,'id_at');
-    }
+    public function actualizacionTributaria(){
+        return $this->hasOne(ActualizacionTributaria::class, 'id', 'id_at');
+    } 
 }

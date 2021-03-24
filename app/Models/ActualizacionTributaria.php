@@ -12,6 +12,6 @@ class ActualizacionTributaria extends Model
     protected $table = 'actualizaciones_tributarias';
 
     public function subcarpetas(){
-        return $this->belongsTo(subcarpetas::class);
+        return $this->belongsTo(subcarpetas::class,'id_at');
     }
 }

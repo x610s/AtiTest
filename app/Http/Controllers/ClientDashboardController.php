@@ -14,7 +14,7 @@ class ClientDashboardController extends Controller
 
     public function index()
     {
-       $subcarpetas = auth()->user()->carpetas->subcarpetas->pluck('name','id');
+        $subcarpetas = auth()->user()->carpetas->subcarpetas->count();
       return view('pages.clienteDashboard',compact('subcarpetas')); 
     }
 

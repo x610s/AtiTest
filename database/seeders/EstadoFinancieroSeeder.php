@@ -17,10 +17,9 @@ class EstadoFinancieroSeeder extends Seeder
     public function run()
     {
         EstadoFinanciero::truncate();
-        for ($i=1; $i <=5; $i++) { 
-            $user = User::find($i);
+        for ($i=1; $i <=4; $i++) { 
             EstadoFinanciero::create([
-                'name' => 'Estado Financiero '.$user->name.' '. Carbon::now(),
+                'name' => 'Estado Financiero '. Carbon::now(),
                 'descripcion' => Str::random(200),
             ]);
         }
