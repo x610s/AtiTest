@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ActualizacionTributaria;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +16,10 @@ class DatabaseSeeder extends Seeder
             UserRoleSeeder::class,
             PlanSeeder::class,
             UserPlanSeeder::class,
-            CarpetaSeeder::class
+            CarpetaSeeder::class,
+            SubcarpetasSeeder::class,
+            EstadoFinancieroSeeder::class,
+            ActualizacionTributariaSeeder::class,
         ]);
     }
 }

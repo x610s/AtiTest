@@ -16,7 +16,8 @@ class CreatesSubcarpetasTable extends Migration
     {
         Schema::create('subcarpetas', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default("Carpeta [".Carbon::now()->month."/".Carbon::now()->year."]");
+            $table->integer('carpeta_id');
+            $table->string('name')->default("Carpeta [".Carbon::now()->day."/".Carbon::now()->month."/".Carbon::now()->year."]");
             $table->integer('id_at')->nullable();
             $table->integer('id_ef')->nullable();
             $table->timestamps();

@@ -20,9 +20,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $now = Carbon::now()->year;
-        return $now;
+        return view("/home");
     }
+
     public function store()
     {
       

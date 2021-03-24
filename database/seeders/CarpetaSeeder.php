@@ -15,7 +15,7 @@ class CarpetaSeeder extends Seeder
     public function run()
     {
        Carpeta::truncate();
-       for ($i=1; $i <=3 ; $i++) { 
+       for ($i=1; $i <=5 ; $i++) { 
         Carpeta::create([
             'user_id' => $i
         ]);

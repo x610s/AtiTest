@@ -2,17 +2,19 @@
 
 namespace Database\Seeders;
 
+use App\Models\subcarpetas;
 use Illuminate\Database\Seeder;
 
 class SubcarpetasSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+  
     public function run()
     {
-        //
+        subcarpetas::truncate();
+        for ($i=1; $i <=5 ; $i++) { 
+            subcarpetas::create([
+                'carpeta_id' => $i
+            ]);
+           }
     }
 }
